@@ -63,9 +63,9 @@ def buscar_cursos(request):
     if request.method == "POST":
         data=request.POST
         busqueda= data["busqueda"]
-        cursos=Post.objects.filter(comision__icontains=busqueda)
+        posts=Post.objects.filter(nombre__icontains=busqueda)
         contexto={
-            "cursos": cursos,
+            "posts": posts,
         }
         http_response=render(
             request= request,
