@@ -18,12 +18,14 @@
      <tbody>
        <tr>
          <th>Título</th>
-         <th>Comision</th>
+         <th>Subtitulo</th>
+         <th>Cuerpo</th>
        </tr>
        {% for post in posts %}
        <tr>
          <td>{{ post.nombre }}</td>
          <td>{{ post.comision }}</td>
+         <td>{{ post.cuerpo }}</td>
          <td>
           {% if user == post.creador %}
             <a href="{% url 'editar_curso' post.id %}">Editar</a>

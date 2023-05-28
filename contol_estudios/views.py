@@ -40,10 +40,11 @@ def formulario_crear_curso(request):
 
         if formulario.is_valid():
             data=formulario.cleaned_data
-            nombre= data["nombre"]
-            comision=data["comision"]
+            titulo= data["titulo"]
+            subtitulo=data["subtitulo"]
+            cuerpo=data["cuerpo"]
             creador=request.user
-            post=Post( nombre=nombre, comision=comision, creador=creador)
+            post=Post( nombre=titulo, comision=subtitulo, cuerpo=cuerpo, creador=creador)
             post.save()
             #redirecciono al usuario a la lista de cursos
             url_exitosa=reverse('lista_cursos')
