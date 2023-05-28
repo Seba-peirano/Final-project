@@ -27,6 +27,9 @@
          <td>{{ post.comision }}</td>
          <td>{{ post.cuerpo }}</td>
          <td>
+          <img src="{{ post.imagen.url }}" width="300" height="200"alt="Imagen">
+        </td>
+         <td>
           {% if user == post.creador %}
             <a href="{% url 'editar_curso' post.id %}">Editar</a>
           {% endif %}
