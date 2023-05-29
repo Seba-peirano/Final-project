@@ -172,3 +172,14 @@ def PostDetalle(request, post_id):
         'post': post,  # Pasar el artículo al contexto
     }
     return render(request, 'contol_estudios/postDetalle.html', contexto)
+
+def enconstruccion(request):
+    contexto={
+       
+    }
+    http_responde=render(
+    request= request,
+    template_name='contol_estudios/enconstruccion.html',
+    context= contexto,
+    )
+    return http_responde

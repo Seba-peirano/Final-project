@@ -29,5 +29,6 @@ urlpatterns = [
     path('editar-curso/<int:id>/', editar_curso, name="editar_curso"),
     path("aboutme/",aboutme, name="aboutme" ),
     path("post-detalle/",PostDetalle, name="postdetalle" ),
+    path("enconstruccion/",enconstruccion, name="enconstruccion" ),
 
     ]
