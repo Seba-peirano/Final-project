@@ -1,6 +1,21 @@
 {% extends "contol_estudios/base.html" %}
-
+{% load static %}
 {% block contenido %}
-<h1>Autos clásicos</h1>
-<img src="{{ MEDIA_URL }}ob_686e47_lamborghini-jarama-3.jpg" width="300" height="200" alt="Imagen">
+<style>
+    .container {
+        text-align: center;
+    }
+    .image {
+        display: block;
+        margin: 0 auto;
+    }
+    h1 {
+        font-size: 50px; /* Tamaño de la fuente deseado */
+    }
+</style>
+
+<div class="container">
+    <h1 style="margin-top: 50px;">AUTOS CLÁSICOS</h1>
+    <img src="{% static 'sistema_coder/inicio.avif' %}" alt="Mi Imagen" class="image">
+</div>
 {% endblock %}

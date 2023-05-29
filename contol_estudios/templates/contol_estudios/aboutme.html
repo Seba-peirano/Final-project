@@ -1,0 +1,62 @@
+{% extends "contol_estudios/base.html" %}
+{% load static %}
+{% block contenido %}
+<style>
+    .image-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .image {
+        width: 200px;
+        height: auto;
+        margin-top: 10px;
+        margin-right: 20px;
+    }
+
+    .about-me {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        white-space: nowrap;
+    }
+
+    .body-text {
+        text-align: justify;
+    }
+</style>
+<div class="container">
+   
+        <h1 class="about-me">About me</h1>
+        
+    </div>
+</div>
+<div class="container">
+    <div class="image-container">
+        
+        <img src="{% static 'sistema_coder/aboutme.jpeg' %}" alt="Mi Imagen" class="image">
+        <div>
+            <p class="body-text">
+
+                Soy un ingeniero civil apasionado por la programación y la informática. Me he dedicado a adquirir conocimientos y habilidades en diferentes lenguajes de programación y tecnologías. Me encanta explorar nuevas herramientas y desafíos para expandir mis habilidades y mantenerme actualizado en el campo de la tecnología. Además, tengo diversos hobbies como el senderismo, el ciclismo, la lectura, la música y los viajes, que me permiten mantener un equilibrio en mi vida y explorar diferentes culturas.
+                
+                </p>
+                <p class="body-text">
+
+                    Mi objetivo es combinar mis habilidades como ingeniero civil con mi pasión por la programación para crear soluciones innovadoras y eficientes en el ámbito de la construcción y la tecnología. Estoy emocionado por formar parte de esta era digital en constante evolución y desafiante. Siempre estoy dispuesto a enfrentar nuevos desafíos y aprender de cada experiencia, buscando oportunidades para adquirir nuevos conocimientos y colaborar con personas creativas y entusiastas.
+                    
+                    </p>
+                    <p class="body-text">
+
+                        
+                        Estoy listo para explorar el fascinante mundo de la programación y las nuevas tecnologías, y contribuir con ideas frescas e innovadoras. Si deseas saber más sobre mí y mi trabajo, no dudes en contactarme. Espero que esta breve introducción te haya dado una idea de quién soy y qué me motiva. Estoy aquí para ayudarte si necesitas más información o tienes alguna pregunta.
+                        
+                        Si tienes alguna otra solicitud, no dudes en decírmelo.</p> 
+                        <p class="body-text">
+
+                        
+                           Si tienes alguna otra solicitud, no dudes en decírmelo.</p> 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

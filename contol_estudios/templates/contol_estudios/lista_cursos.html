@@ -1,9 +1,8 @@
-
 {% extends "contol_estudios/base.html" %}
 
 {% block contenido %}
 <section>
- <div>
+ <div class="container">
    <h1>Artículos</h1>
    <a href="{% url 'crear_curso' %}">Crear Post</a>
    <br><br>
@@ -14,40 +13,41 @@
    </form>
    <br>
 
-   <table class="table">
-     <tbody>
-       <tr>
-         <th>Título</th>
-         <th>Subtitulo</th>
-         <th>Cuerpo</th>
-       </tr>
-       {% for post in posts %}
-       <tr>
-         <td>{{ post.nombre }}</td>
-         <td>{{ post.comision }}</td>
-         <td>{{ post.cuerpo }}</td>
-         <td>
-          <img src="{{ post.imagen.url }}" width="300" height="200"alt="Imagen">
-        </td>
-         <td>
-          {% if user == post.creador %}
-            <a href="{% url 'editar_curso' post.id %}">Editar</a>
-          {% endif %}
-        </td>
-         <td>
-            {% if user == post.creador %}
-            <form action="{% url 'eliminar_curso' post.id %}" method="post">
-              {% csrf_token %}
-              <input type="submit" value="eliminar"/>
-              </form>
-            {% endif %} 
-          </td>
-     
-       </tr>
-       {% endfor %}
-     </tbody>
-   </table>
+   <div class="row justify-content-start">
+     {% for post in posts %}
+       <div class="col-md-4 mb-4">
+         <div class="card">
+           <img src="{{ post.imagen.url }}" class="card-img-top custom-img" alt="Imagen">
+           <div class="card-body">
+             <h5 class="card-title">{{ post.nombre }}</h5>
+             <h6 class="card-subtitle">{{ post.comision }}</h6>
+             <p class="card-text">{{ post.cuerpo }}</p>
+             <a href="{{ post.get_absolute_url }}" class="btn btn-success">Ver más</a>
+             {% if user == post.creador %}
+               <a href="{% url 'editar_curso' post.id %}" class="btn btn-primary">Editar</a>
+               <form action="{% url 'eliminar_curso' post.id %}" method="post" class="d-inline">
+                 {% csrf_token %}
+                 <input type="submit" value="Eliminar" class="btn btn-danger">
+               </form>
+             {% endif %}
+           </div>
+         </div>
+       </div>
+       {% if forloop.counter|divisibleby:3 and not forloop.last %}
+         </div><div class="row justify-content-start">
+       {% endif %}
+     {% endfor %}
+   </div>
 
  </div>
 </section>
+
+<style>
+  .custom-img {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+  }
+</style>
+
 {% endblock contenido %}

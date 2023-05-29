@@ -3,6 +3,8 @@ from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.views.generic import TemplateView, ListView, DetailView, UpdateView
+from django.shortcuts import get_object_or_404
 
 from contol_estudios.models import *
 from contol_estudios.forms import *
@@ -146,3 +148,27 @@ def editar_curso(request, id):
        template_name='contol_estudios/formulario_crear_curso.html',
        context={'formulario': formulario},
    )
+
+def aboutme(request):
+    contexto={
+       
+    }
+    http_responde=render(
+    request= request,
+    template_name='contol_estudios/aboutme.html',
+    context= contexto,
+    )
+    return http_responde
+
+
+
+
+@login_required
+def PostDetalle(request, post_id):
+    # Obtener el artículo según el ID
+    post = get_object_or_404(Post, id=post_id)
+
+    contexto = {
+        'post': post,  # Pasar el artículo al contexto
+    }
+    return render(request, 'contol_estudios/postDetalle.html', contexto)

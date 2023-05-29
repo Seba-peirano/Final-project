@@ -53,7 +53,7 @@ def login_view(request):
        context={'form': form},
    )
 class CustomLogoutView(LogoutView):
-   template_name = 'perfiles/logout.html'
+   template_name = 'contol_estudios/index.html'
 
 class MiPerfilUpdateView(LoginRequiredMixin, UpdateView):
    form_class = UserUpdateForm

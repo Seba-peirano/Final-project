@@ -27,5 +27,7 @@ urlpatterns = [
     path("buscar-estudiante/",buscar_estudiantes, name="buscar_estudiante" ),
     path('eliminar-curso/<int:id>/', eliminar_curso, name="eliminar_curso"),
     path('editar-curso/<int:id>/', editar_curso, name="editar_curso"),
+    path("aboutme/",aboutme, name="aboutme" ),
+    path("post-detalle/",PostDetalle, name="postdetalle" ),
 
     ]

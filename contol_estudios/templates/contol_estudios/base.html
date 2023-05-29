@@ -23,9 +23,13 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
-                <a class="navbar-brand" href="{% url 'lista_cursos' %}">Posts</a>
-        
+                <div class="button-container">
+                    <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
+                    <a class="navbar-brand" href="{% url 'aboutme' %}">About me</a>
+                </div>
+                <div class="center-button">
+                    <a class="navbar-brand" href="{% url 'lista_cursos' %}">Posts</a>
+                </div>
                 {% if user.is_authenticated %}
                 <div class="user-profile">
                     <img src="{{ user.avatar.imagen.url }}" width="50" height="50" alt="Avatar">
@@ -55,21 +59,30 @@
             </div>
         </nav>
         <style>
+            .button-container {
+                display: flex;
+                justify-content: flex-start;
+            }
+    
+            .center-button {
+                text-align: center;
+            }
+    
             .user-profile {
                 display: flex;
                 align-items: center;
             }
-        
+    
             .user-profile img {
                 margin-right: 10px;
             }
         </style>
-
-        
-        <section style="padding:80px 50px;">
-        {% block contenido %}
-        {% endblock contenido %}
-        </section> 
+    
+        <section style="padding: 80px 50px;">
+            {% block contenido %}
+            {% endblock contenido %}
+        </section>
+    </body>
         
         
 

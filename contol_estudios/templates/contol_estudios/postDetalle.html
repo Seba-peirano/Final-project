@@ -1,0 +1,52 @@
+{% extends "contol_estudios/base.html" %}
+
+{% block contenido %}
+<section>
+ <div>
+   <h1>Artículos</h1>
+   <a href="{% url 'crear_curso' %}">Crear Post</a>
+   <br><br>
+   <form action="{% url 'buscar_curso' %}" method="post">
+     {% csrf_token %}
+     <input type="text" name="busqueda">
+     <input type="submit" value="Buscar">
+   </form>
+   <br>
+
+   <table class="table">
+     <tbody>
+       <tr>
+         <th>Título</th>
+         <th>Subtitulo</th>
+         <th>Cuerpo</th>
+       </tr>
+       {% for post in posts %}
+       <tr>
+         <td>{{ post.nombre }}</td>
+         <td>{{ post.comision }}</td>
+         <td>{{ post.cuerpo }}</td>
+         <td>
+          <img src="{{ post.imagen.url }}" width="300" height="200"alt="Imagen">
+        </td>
+         <td>
+          {% if user == post.creador %}
+            <a href="{% url 'editar_curso' post.id %}">Editar</a>
+          {% endif %}
+        </td>
+         <td>
+            {% if user == post.creador %}
+            <form action="{% url 'eliminar_curso' post.id %}" method="post">
+              {% csrf_token %}
+              <input type="submit" value="eliminar"/>
+              </form>
+            {% endif %} 
+          </td>
+     
+       </tr>
+       {% endfor %}
+     </tbody>
+   </table>
+
+ </div>
+</section>
+{% endblock contenido %}
