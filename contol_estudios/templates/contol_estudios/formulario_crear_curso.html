@@ -1,12 +1,11 @@
-
-{% extends "contol_estudios/base.html"%}
+{% extends "contol_estudios/base.html" %}
 
 {% block contenido %}
-<form  method="POST">
-    {%  csrf_token  %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
     {{ formulario.as_p }}
     {{ formulario.errors }}
-    <input type="submit" value="Enviar" />
+   <!-- <input type="file" name="imagen" accept="image/*">   #Si lo dejo se duplica--> 
+    <input type="submit" value="Enviar" /> 
 </form>
-
 {% endblock contenido %}

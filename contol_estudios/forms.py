@@ -5,7 +5,7 @@ class PostFormulario(forms.Form):
     subtitulo=forms.CharField(required=True, max_length=64)
     cuerpo=forms.CharField(required=True, max_length=5000)
     #falta fehca
-    #falta imagen
+    imagen = forms.ImageField(required=True)
     #falta autor automatico
 class EstudianteFormulario(forms.Form):
     nombre=forms.CharField(required=True, max_length=64)

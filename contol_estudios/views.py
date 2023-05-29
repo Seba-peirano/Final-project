@@ -38,15 +38,16 @@ def lista_cursos(request):
 @login_required
 def formulario_crear_curso(request):
     if request.method == "POST":
-        formulario=PostFormulario(request.POST)
+        formulario=PostFormulario(request.POST,request.FILES)
 
         if formulario.is_valid():
             data=formulario.cleaned_data
             titulo= data["titulo"]
             subtitulo=data["subtitulo"]
             cuerpo=data["cuerpo"]
+            imagen = request.FILES["imagen"]
             creador=request.user
-            post=Post( nombre=titulo, comision=subtitulo, cuerpo=cuerpo, creador=creador)
+            post=Post( nombre=titulo, comision=subtitulo, imagen=imagen, cuerpo=cuerpo, creador=creador)
             post.save()
             #redirecciono al usuario a la lista de cursos
             url_exitosa=reverse('lista_cursos')
