@@ -3,9 +3,25 @@
 {% block contenido %}
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ formulario.as_p }}
-    {{ formulario.errors }}
-   <!-- <input type="file" name="imagen" accept="image/*">   #Si lo dejo se duplica--> 
-    <input type="submit" value="Enviar" /> 
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <label for="id_titulo" style="flex: 0 0 100px;">Título:</label>
+        <textarea name="titulo" id="id_titulo" style="flex: 1; height: 30px;"></textarea>
+        {{ formulario.titulo.errors }}
+    </div>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <label for="id_subtitulo" style="flex: 0 0 100px;">Subtítulo:</label>
+        <textarea name="subtitulo" id="id_subtitulo" style="flex: 1; height: 30px;"></textarea>
+        {{ formulario.subtitulo.errors }}
+    </div>
+    <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+        <label for="id_cuerpo" style="flex: 0 0 100px; margin-left: 10px;">Cuerpo:</label>
+        <textarea name="cuerpo" id="id_cuerpo" style="flex: 1; height: 500px;"></textarea>
+        {{ formulario.cuerpo.errors }}
+    </div>
+    <div>
+        <label for="id_imagen">Imagen:</label>
+        <input type="file" name="imagen" accept="image/*">
+    </div>
+    <input type="submit" value="Enviar" />
 </form>
 {% endblock contenido %}

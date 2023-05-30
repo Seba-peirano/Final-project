@@ -28,7 +28,8 @@ urlpatterns = [
     path('eliminar-curso/<int:id>/', eliminar_curso, name="eliminar_curso"),
     path('editar-curso/<int:id>/', editar_curso, name="editar_curso"),
     path("aboutme/",aboutme, name="aboutme" ),
-    path("post-detalle/",PostDetalle, name="postdetalle" ),
+    
     path("enconstruccion/",enconstruccion, name="enconstruccion" ),
+    path('postdetail/<int:pk>/', PostDetailView.as_view(), name='post_detail'),
 
     ]

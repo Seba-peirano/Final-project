@@ -21,8 +21,8 @@
            <div class="card-body">
              <h5 class="card-title">{{ post.nombre }}</h5>
              <h6 class="card-subtitle">{{ post.comision }}</h6>
-             <p class="card-text">{{ post.cuerpo }}</p>
-             <a href="{{ post.get_absolute_url }}" class="btn btn-success">Ver más</a>
+             <p class="card-text justified-text">{{ post.cuerpo|slice:":300" }}...</p>
+             <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-success">Ver más</a>
              {% if user == post.creador %}
                <a href="{% url 'editar_curso' post.id %}" class="btn btn-primary">Editar</a>
                <form action="{% url 'eliminar_curso' post.id %}" method="post" class="d-inline">
@@ -47,6 +47,10 @@
     width: 400px;
     height: 300px;
     object-fit: cover;
+  }
+  
+  .justified-text {
+    text-align: justify;
   }
 </style>
 

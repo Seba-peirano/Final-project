@@ -184,3 +184,11 @@ def enconstruccion(request):
     context= contexto,
     )
     return http_responde
+
+class PostDetailView(DetailView):
+    model = Post
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['post'] = self.object
+        return context
